@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/MachineTODOReact/static/css/main.e519ab84.css",
+    "main.js": "/MachineTODOReact/static/js/main.3efd9031.js",
+    "index.html": "/MachineTODOReact/index.html",
+    "static/media/delete.svg": "/MachineTODOReact/static/media/delete.7018c4465589031bd51c8efbe21df9ca.svg",
+    "static/media/check.svg": "/MachineTODOReact/static/media/check.e9a948bba52a34123d2ed7aeda0ea495.svg",
+    "main.e519ab84.css.map": "/MachineTODOReact/static/css/main.e519ab84.css.map",
+    "main.3efd9031.js.map": "/MachineTODOReact/static/js/main.3efd9031.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e519ab84.css",
+    "static/js/main.3efd9031.js"
+  ]
+}
