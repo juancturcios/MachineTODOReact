@@ -1,5 +1,17 @@
-import { TodoProvider } from '../TodoContext';
-import { AppUI } from './AppUI';
+import { useTodos } from './useTodos';
+import { TodoList } from '../TodoList';
+import { TodoItem } from '../TodoItem';
+import { CreateTodoButton } from '../CreateTodoButton';
+import { TodosLoading } from '../TodosLoading';
+import { TodosError } from '../TodosError';
+import { EmptyTodos } from '../EmptyTodos';
+import { Modal } from '../Modal';
+import {TodoForm} from '../TodoForm';
+import { TodoHeader } from '../TodoHeader';
+import { TodoCounter } from '../TodoCounter';
+import { TodoSearch } from '../TodoSearch';
+import { ChangeAlert } from '../ChangeAlert';
+//import { AppUI } from './AppUI';
 import React from 'react';
 //import { useLocalStorage } from '../TodoContext/useLocalStorage';
 
@@ -14,8 +26,24 @@ import React from 'react';
 //localStorage.removeItem('TODOS_V1');
 
 
-
 function App() {
+
+  const {
+  loading,
+  error,
+  searchedTodos,
+  completeTodo,
+  deleteTodo,
+  openModal,
+  setOpenModal,
+  completedTodos,
+  totalTodos,
+  completedAll,
+  searchValue,
+  setSearchValue,
+  addTodo,
+  sincronizeTodos
+} = useTodos();
 
   // //const [todos, setTodos]= React.useState(parsedTodos); //Asignar un estado por defecto de un arreglo
   // const {item: todos, saveItem: saveTodos, loading, error}= useLocalStorage('TODOS_V1', []); //Asignar un estado por defecto de un arreglo
@@ -74,11 +102,11 @@ function App() {
   //   saveTodos(newTodos);
   // }
 
- return (
-  <TodoProvider>
-    <AppUI/>
-  </TodoProvider>
- );
+//  return (
+//   <TodoProvider>
+//     <AppUI/>
+//   </TodoProvider>
+//  );
 
 //  return (
 //   <AppUI
@@ -93,6 +121,60 @@ function App() {
 //     completeTodo={completeTodo}
 //     deleteTodo={deleteTodo}/>
 //  );
+
+
+return (
+  <React.Fragment>
+    <TodoHeader loading= {loading}> 
+      <TodoCounter
+      completedTodos= {completedTodos}
+      totalTodos={totalTodos}
+      completedAll={completedAll}
+      //loading= {loading}
+      />
+      <TodoSearch 
+      searchValue ={searchValue}
+      setSearchValue ={setSearchValue}
+      //loading= {loading}
+      />
+    </TodoHeader>
+
+      <TodoList
+        error={error}
+        loading= {loading}
+        searchedTodos={searchedTodos}
+        onError={()=><TodosError/>}
+        onLoading={()=><TodosLoading/>}
+        onEmptyTodos={()=><EmptyTodos/>}
+        render={todo=>(
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() =>completeTodo(todo.text)}
+            onDelete={() =>deleteTodo(todo.text)}/>
+        )
+
+        }
+      />
+
+    <CreateTodoButton setOpenModal={setOpenModal}/>
+
+      {openModal && (
+      <Modal>
+          <TodoForm
+          addTodo={addTodo}
+          setOpenModal= {setOpenModal}
+          />
+      </Modal>
+      )}
+      
+        <ChangeAlert
+          sincronize={sincronizeTodos}
+        />
+  </React.Fragment>
+);
+
 }
 
 

@@ -1,19 +1,13 @@
-import { TodoContext } from '../TodoContext';
 import './TodoCounter.css';
 import React from 'react';
 
-function TodoCounter(){
-  const {
-    completedTodos,
-            totalTodos,
-            completedAll
-  } = React.useContext(TodoContext);
+function TodoCounter({completedTodos, totalTodos, completedAll, loading}){
     return(
         <React.Fragment>
             {
             completedAll===true ?
                 <h1 className="TodoCounter"><span>FELICIDADES HAS COMPLETADO TODAS LAS TAREAS</span></h1>
-             : <h1 className="TodoCounter">Has completado <span>{completedTodos}</span> de <span>{totalTodos}</span> TODOs</h1>
+             : <h1 className={`TodoCounter ${!!loading && "TodoCounter--loading"}`}>Has completado <span>{completedTodos}</span> de <span>{totalTodos}</span> TODOs</h1>
             }
       
       </React.Fragment>

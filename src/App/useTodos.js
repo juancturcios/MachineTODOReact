@@ -1,10 +1,9 @@
 import React from "react";
 import { useLocalStorage } from './useLocalStorage';
-const TodoContext= React.createContext();
 
-function TodoProvider({ children }){
+function useTodos(){
      //const [todos, setTodos]= React.useState(parsedTodos); //Asignar un estado por defecto de un arreglo
-  const {item: todos, saveItem: saveTodos, loading, error}= useLocalStorage('TODOS_V1', []); //Asignar un estado por defecto de un arreglo
+  const {item: todos, saveItem: saveTodos, sincronizeItem: sincronizeTodos, loading, error}= useLocalStorage('TODOS_V1', []); //Asignar un estado por defecto de un arreglo
 
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
@@ -65,7 +64,8 @@ const addTodo= (text) =>{
     saveTodos(newTodos);
   }
     return (
-        <TodoContext.Provider value={{ loading,
+            {
+              loading,
             error,
             completedTodos,
             totalTodos,
@@ -77,11 +77,12 @@ const addTodo= (text) =>{
             deleteTodo,
             openModal,
             setOpenModal,
-            addTodo
-          }}>{children}</TodoContext.Provider>
+            addTodo,
+            sincronizeTodos
+          }
     );
 }
 
 
 
-export {TodoContext, TodoProvider};
+export {useTodos};
