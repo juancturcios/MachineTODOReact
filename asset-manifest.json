@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/MachineTODOReact/static/css/main.e519ab84.css",
-    "main.js": "/MachineTODOReact/static/js/main.3efd9031.js",
+    "main.css": "/MachineTODOReact/static/css/main.06d0e84a.css",
+    "main.js": "/MachineTODOReact/static/js/main.cb0856cc.js",
     "index.html": "/MachineTODOReact/index.html",
-    "static/media/delete.svg": "/MachineTODOReact/static/media/delete.7018c4465589031bd51c8efbe21df9ca.svg",
-    "static/media/check.svg": "/MachineTODOReact/static/media/check.e9a948bba52a34123d2ed7aeda0ea495.svg",
-    "main.e519ab84.css.map": "/MachineTODOReact/static/css/main.e519ab84.css.map",
-    "main.3efd9031.js.map": "/MachineTODOReact/static/js/main.3efd9031.js.map"
+    "static/media/delete.svg": "/MachineTODOReact/static/media/delete.f8e04b980f4a347b447ca1bb82768b46.svg",
+    "static/media/check.svg": "/MachineTODOReact/static/media/check.fa4fb594b16385306a04b9c87c0feb55.svg",
+    "main.06d0e84a.css.map": "/MachineTODOReact/static/css/main.06d0e84a.css.map",
+    "main.cb0856cc.js.map": "/MachineTODOReact/static/js/main.cb0856cc.js.map"
   },
   "entrypoints": [
-    "static/css/main.e519ab84.css",
-    "static/js/main.3efd9031.js"
+    "static/css/main.06d0e84a.css",
+    "static/js/main.cb0856cc.js"
   ]
 }
